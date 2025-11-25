@@ -1,3 +1,12 @@
+# 🛑🛑🛑 ATTENTION TEAM: URGENT 🛑🛑🛑
+# 🚨 YOU MUST SEND YOUR GITHUB USERNAME OR EMAIL TO YOUSSEF KHODIER IMMEDIATELY 🚨
+---
+
+# 🐙 Practical GitHub Guide for the Team
+
+**Goal:** Follow these exact steps to work together without breaking the code.
+**Rule #1:** NEVER work directly on the `main` branch.
+
 # 🐙 Practical GitHub Guide for the Team
 
 **Goal:** Follow these exact steps to work together without breaking the code.
