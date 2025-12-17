@@ -1,5 +1,9 @@
 package com.bugtracker.repository;
 
-public class Repository {
+import java.util.List;
 
+public interface Repository<T> {
+    List<T> findAll();
+    void save(T item);
+    void updateAll(List<T> items);
 }
