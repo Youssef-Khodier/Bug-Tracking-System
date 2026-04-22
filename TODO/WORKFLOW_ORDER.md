@@ -1,6 +1,6 @@
 # 🔄 Project Workflow: Sequential Execution Plan
 
-> [!IMPORTANT] > **STRICT NO-MAVEN POLICY:** This project MUST be a standard Java Project. Do NOT use Maven, Gradle, or any build tools. All dependencies (like Gson) must be manually downloaded and placed in the `lib/` folder.
+> [!IMPORTANT] > **STRICT NO-MAVEN POLICY:** This project MUST be a standard Java Project. Do NOT use Maven, Gradle, or any build tools. No external JARs are required.
 
 ## 👥 Team Roles
 
@@ -25,14 +25,13 @@ Do not proceed to the next phase until the current phase's "Checklist" is 100% c
 1.  Create the root project folder `BugTrackingSystem`.
 2.  Create the standard directory structure:
     - `src/` (Source code)
-    - `lib/` (External JARs)
-    - `data/` (JSON storage)
+    - `data/` (Text storage)
 3.  Create the base package: `com.bugtracker`.
 
 **✅ Checklist (Definition of Done):**
 
 - [ ] Folder structure exists.
-- [ ] `lib` and `data` folders are empty but present.
+- [ ] `data` folder is empty but present.
 - [ ] Team has been notified that the repo is created.
 
 ---
@@ -59,7 +58,7 @@ Do not proceed to the next phase until the current phase's "Checklist" is 100% c
 
 **Actions:**
 
-1.  **Install Library:** Place `gson.jar` into the `lib/` folder and add it to the IDE Classpath.
+1.  **Project Setup:** Ensure `data` folder exists.
 2.  **Create Style Engine:** Implement `com.bugtracker.util.StyleUtils`.
     - Define `applyDarkTheme()` to set `UIManager` colors (Background `#2E2E2E`, Text `#FFFFFF`).
 3.  **Create Components:** Implement `com.bugtracker.ui.components.ModernButton`.
@@ -71,7 +70,7 @@ Do not proceed to the next phase until the current phase's "Checklist" is 100% c
 - [ ] `ModernButton` class exists.
 - [ ] `User` entity class exists with fields (id, username, password, role), constructor, getters, and setters.
 - [ ] `Bug` entity class exists with fields (id, title, description, status, priority, etc.), constructor, getters, and setters.
-- [ ] Gson JAR is in the project.
+- [ ] Data storage logic understood.
 - [ ] Team has pulled the latest code.
 
 ---
@@ -103,7 +102,7 @@ Do not proceed to the next phase until the current phase's "Checklist" is 100% c
 ### 👤 Person 6 (Michael) - Data Layer
 
 - **Task:** Implement `com.bugtracker.repository.FileRepository`.
-- **Requirement:** Ensure `users.json` and `bugs.json` are created in `data/`.
+- **Requirement:** Ensure `users.txt` and `bugs.txt` are created in `data/` using pipe delimiter.
 
 **✅ Checklist (Definition of Done):**
 
@@ -135,5 +134,4 @@ Do not proceed to the next phase until the current phase's "Checklist" is 100% c
 
 ## 🛑 Troubleshooting
 
-- **"Class not found: Gson":** You forgot to add `lib/gson.jar` to your IDE's Build Path.
 - **"UI looks ugly/default":** You forgot to call `StyleUtils.applyDarkTheme()` in `Main.java`.

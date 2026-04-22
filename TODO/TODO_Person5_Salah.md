@@ -186,5 +186,5 @@
 4. Try attaching a screenshot image file.
 5. Click "Submit Bug".
 6. Verify the bug appears in the table.
-7. Check the data/bugs.json file to see if the bug was saved.
+7. Check the data/bugs.txt file to see if the bug was saved.
 8. Check the data/screenshots folder to see if the image file was copied there.

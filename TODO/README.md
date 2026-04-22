@@ -5,7 +5,7 @@ This is a **Desktop Application** built in Java to help software teams track and
 
 ## 🎯 The Goal
 To build a fully functional **Bug Tracker** using **Object-Oriented Programming (OOP)** principles.
-We are NOT using a database server (like MySQL). Instead, we are using **JSON files** to save our data, which makes the app portable and easy to run.
+We are NOT using a database server (like MySQL). Instead, we are using **Text files** to save our data, which makes the app portable and easy to run.
 
 ---
 
@@ -33,8 +33,8 @@ Each user sees a different screen (Dashboard) customized for their job.
 *   **Language:** Java (JDK 17+)
 *   **GUI (Graphics):** Swing (Standard Java UI library)
 *   **Styling:** Custom "Dark Mode" engine (No external UI libraries)
-*   **Data Storage:** JSON Files (using Google Gson library)
-*   **Build Tool:** **NONE.** (Manual JAR management)
+*   **Data Storage:** Standard Text Files (`.txt` with pipe delimiter)
+*   **Build Tool:** **NONE.** (Standard Java Project)
 
 ---
 
@@ -43,5 +43,4 @@ Each user sees a different screen (Dashboard) customized for their job.
 *   `src/com/bugtracker/entity`: The data objects (User, Bug).
 *   `src/com/bugtracker/repository`: The code that saves/loads files.
 *   `src/com/bugtracker/service`: The business logic (Rules).
-*   `data/`: Where the JSON files live.
-*   `lib/`: Where the Gson JAR lives.
+*   `data/`: Where the text files live.

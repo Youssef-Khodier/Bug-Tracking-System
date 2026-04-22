@@ -132,5 +132,5 @@ git push origin personX
 
 **⚠️ REMINDERS:**
 *   NEVER work inside another person's folder.
-*   NEVER change JSON files manually (let the code do it).
+*   NEVER change Text files manually (let the code do it).
 *   ALWAYS test your part before making a PR.

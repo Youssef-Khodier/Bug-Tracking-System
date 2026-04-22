@@ -1,0 +1,18 @@
+4|login_error|cannot login with valid credentials|Open|High|1|1004|1014||||
+5|ui_overlap|buttons overlap on small screens|Open|Medium|1|1005|1003||||
+6|crash_on_save|app crashes when saving data|In Progress|High|1|1013|1007||||
+7|slow_loading|dashboard loads very slowly|Completed|Low|1|1010|1014||||
+8|email_not_sent|email notification not sent|In Progress|Medium|1|1006|1002||||
+11|permission_bug|tester can access admin panel|Open|High|1|1004|1007||||
+12|file_upload_fail|screenshot upload fails|In Progress|Medium|1|1020|1003||||
+13|logout_issue|logout does not clear session|Open|Medium|1|1013|1014||||
+15|duplicate_bug|same bug submitted twice|Closed|Low|1|1018|1003||||
+16|search_fail|search returns incorrect results|In Progress|High|1|1020|1014||||
+17|table_refresh|table does not refresh after update|Open|Medium|1|1006|1007||||
+18|profile_update|profile changes not saved|Open|Medium|1|1015|1011||||
+19|access_denied|developer denied access to bug list|Open|High|1|1004|1003||||
+20|status_not_update|bug status not updated in UI|In Progress|High|1|1025|1014||||
+23|comment_missing|comments not displayed after submit|Open|Low|1|1013|1014||||
+24|123|123|Open|Low|1|1004|1||||
+25|1234|12132222222222222222222222222222222222|Open|Medium|1|0|1|Feature Request|Major|2025-12-18|H:\Computers and Information\Bug Tracking System\data\screenshots\1766059812310_Arthur morgan.png
+26|oop|oop|Completed|High|1|0|1|Bug|Critical|2025-12-18|H:\Computers and Information\Bug Tracking System\data\screenshots\1766063518058_Arthur morgan.png

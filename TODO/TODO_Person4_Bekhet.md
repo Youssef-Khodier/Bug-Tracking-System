@@ -145,4 +145,4 @@
 3. Check if the bug list on the left shows your assigned bugs.
 4. Click on a bug and verify details appear on the right.
 5. Change the status from OPEN to IN_PROGRESS and click Save.
-6. Verify the change is saved (close and reopen app, or check the JSON file).
+6. Verify the change is saved (close and reopen app, or check the text file).

@@ -5,9 +5,9 @@
 
 ## Before You Start
 
-- You need the Gson library JAR file. Download `gson-2.10.1.jar` and put it in the `lib/` folder.
-- Make sure you add the JAR file to your IDE's build path/classpath.
-- Understand that Gson converts Java objects to JSON text format so we can save them to files.
+- You will be working with standard Java I/O (`java.io`).
+- We will store data in text files (`.txt`) using a pipe (`|`) delimiter.
+- No external libraries are required.
 
 ---
 
@@ -30,38 +30,35 @@
 **Purpose:** To implement the generic logic for saving and loading data from JSON files.
 
 1. Open the `FileRepository` class (it should already exist).
-2. Add imports: `com.google.gson.Gson`, `com.google.gson.GsonBuilder`, `com.google.gson.reflect.TypeToken`, `java.io.*`, `java.lang.reflect.Type`, `java.util.*`.
+2. Add imports: `java.io.*`, `java.util.*`.
 
 ### Step 3: Add Class Variables
 
 **Purpose:** To store the necessary components for file operations and JSON serialization.
 
-1. Create a protected variable called `gson` of type `Gson`.
-2. Create a protected variable called `file` of type `File`.
-3. Create a protected variable called `type` of type `Type`.
+1. Create a protected variable called `filename` of type `String`.
 
 ### Step 4: Create Constructor
 
 **Purpose:** To initialize the repository with the file path and the generic type for Gson.
 
-1. Create a public constructor that takes `String filePath` and `Type type` as parameters.
-2. Inside, create a new File using filePath and store it in `file`.
-3. Store the type parameter in `type`.
-4. Create a GsonBuilder, call `setPrettyPrinting()` on it, then call `create()` and store in `gson`.
-5. Check if the file's parent directory doesn't exist. If true, call `mkdirs()` to create it.
+1. Create a public constructor that takes `String filename` as a parameter.
+2. Store the filename in `this.filename`.
+3. Call `createFileIfMissing()` (you will implement this next).
 
 ### Step 5: Implement findAll Method
 
-**Purpose:** To read all objects from the JSON file.
+**Purpose:** To read all lines from the text file.
 
-1. Implement the `findAll` method to return `List<T>`.
-2. Check if the file doesn't exist. If true, return a new empty ArrayList.
-3. Wrap in try-catch (IOException).
-4. Inside try, create `FileReader reader = new FileReader(file)`.
-5. Call `gson.fromJson(reader, type)` and store in `List<T> items`.
-6. If items is null, return a new empty ArrayList.
-7. Return `items`.
-8. In the catch block, print the error and return a new empty ArrayList.
+1. Implement a protected method `readLines()` returning `List<String>`.
+2. Use `BufferedReader` with `FileReader` to read the file line by line.
+3. Add each line to a `List<String>`.
+4. Handle IOExceptions.
+
+**Also, define abstract methods:**
+1. `public abstract List<T> findAll();`
+2. `public abstract void save(T entity);`
+3. `public abstract void updateAll(List<T> entities);`
 
 ### Step 6: Implement findById Method
 
@@ -76,22 +73,11 @@
 
 ### Step 7: Implement save Method
 
-**Purpose:** To add a new object or update an existing one in the file.
+**Purpose:** To write a list of strings to the file.
 
-1. Implement the `save` method that takes `T item` and returns void.
-2. Call `findAll()` and store in `allItems`.
-3. Get ID of `item` by calling `item.getId()` (all entities have this method).
-4. Create a boolean variable `found` set to false.
-5. Create an int variable `index` set to -1.
-6. Loop through `allItems` with index (use a for loop with counter).
-7. Inside loop, check if current item's ID (call `getId()`) equals the new item's ID.
-8. If yes, set `found` to true, store the index, and break the loop.
-9. After the loop, if `found` is true, replace the item at that index with the new item.
-10. If `found` is false, add the new `item` to `allItems`.
-11. Wrap in try-catch (IOException).
-12. Inside try, create `FileWriter writer = new FileWriter(file)` (or use try-with-resources).
-13. Call `gson.toJson(allItems, writer)`.
-14. Close the writer (or it will auto-close with try-with-resources).
+1. Implement a protected method `writeLines(List<String> lines)`.
+2. Use `BufferedWriter` with `FileWriter` (overwrite mode).
+3. Iterate through strings and write them, followed by `newLine()`.
 
 ### Step 8: Implement delete Method
 
@@ -113,21 +99,27 @@
 
 **Purpose:** To handle data persistence specifically for User objects.
 
-1. In the `repository` package, open the `UserRepository` class (it should already exist).
-2. Make sure it extends `FileRepository<User>`.
-3. Add import for `com.bugtracker.entity.User` and `com.google.gson.reflect.TypeToken`.
-4. Create a constructor.
-5. Inside, call `super` with "data/users.json" and `new TypeToken<List<User>>(){}.getType()`.
+1. In the `repository` package, open the `UserRepository` class.
+2. Extend `FileRepository<User>`.
+3. Implement `findAll()`:
+   - Call `readLines()`.
+   - Convert each line to a User object using a helper method `fromFileString`.
+4. Implement `save(User user)`:
+   - Add user to list, then call `updateAll`.
+5. Implement `toFileString(User u)`:
+   - Return string: `id|username|password|role`.
+6. Implement `fromFileString(String line)`:
+   - Split by pipe `|` and create User object.
 
 ### Step 10: Open BugRepository Class
 
-**Purpose:** To handle data persistence specifically for Bug objects.
+**Purpose:** Similar to User, handle `Bug` persistence.
 
-1. In the `repository` package, open the `BugRepository` class (it should already exist).
-2. Make sure it extends `FileRepository<Bug>`.
-3. Add import for `com.bugtracker.entity.Bug` and `com.google.gson.reflect.TypeToken`.
-4. Create a constructor.
-5. Inside, call `super` with "data/bugs.json" and `new TypeToken<List<Bug>>(){}.getType()`.
+1. Extend `FileRepository<Bug>`.
+2. Implement `toFileString(Bug b)`:
+   - Return string: `id|title|desc|...|bugDate|...`.
+3. Implement `fromFileString(String line)`:
+   - Parse the pipe-separated line.
 
 ---
 

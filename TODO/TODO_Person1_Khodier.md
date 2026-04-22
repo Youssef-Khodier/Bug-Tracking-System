@@ -25,13 +25,11 @@
         - `ui`
           - `components`
           - `dashboard`
-    - Create a root folder named `lib` for external JARs.
-    - Create a root folder named `data` for JSON storage.
+    - Create a root folder named `data` for text storage.
 
 2.  **Dependency Management:**
-    - **Action:** You are responsible for the `lib` folder.
-    - **Task:** Coordinate with Person 6 to ensure `gson-2.10.1.jar` (or similar) is downloaded and placed in `lib`.
-    - **Task:** Add `lib/gson-*.jar` to your IDE's Build Path / Classpath.
+    - **Action:** No external libraries are needed.
+    - **Task:** Verify that `data/` folder exists.
 
 ## Phase 2: Custom UI Styling (The "Dark Mode" Engine)
 
