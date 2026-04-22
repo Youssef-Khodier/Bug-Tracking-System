@@ -1,46 +1,38 @@
-# 🐞 Bug Tracking System: Project Overview
+# Bug Tracking System Implementation Plan
 
-## 📖 What is this project?
-This is a **Desktop Application** built in Java to help software teams track and manage bugs (defects) in their projects.
+This folder now documents the implementation plan for the current project, not person-based assignments.
 
-## 🎯 The Goal
-To build a fully functional **Bug Tracker** using **Object-Oriented Programming (OOP)** principles.
-We are NOT using a database server (like MySQL). Instead, we are using **Text files** to save our data, which makes the app portable and easy to run.
+## Project Context
 
----
+- Application type: Java Swing desktop application
+- Project type: NetBeans standard Java project
+- Java version: JDK 17
+- Package root: `src/bugtrackingsystem`
+- Data storage: text files inside `data/`
+- Current roles in code: `Admin`, `Manager`, `Developer`, `Tester`
 
-## 🔑 Key Features
+## Current Code Areas
 
-### 1. User Roles (Who uses the app?)
-*   **Admin:** The boss. Can create new users and delete them.
-*   **Project Manager (PM):** The overseer. Can view reports and see how many bugs are open.
-*   **Developer:** The worker. Can view bugs assigned to them and change status to "Fixed".
-*   **Tester:** The finder. Can report new bugs and attach screenshots.
+- `src/bugtrackingsystem/controller`: login, user, and bug coordination
+- `src/bugtrackingsystem/gui`: shared frame base and role dashboards
+- `src/bugtrackingsystem/model`: `User`, `Bug`, `Project`, `Comment`
+- `src/bugtrackingsystem/service`: file persistence and business services
+- `src/bugtrackingsystem/util`: shared UI styling
+- `data/`: `users.txt`, `bugs.txt`, `projects.txt`, `email.txt`, and screenshots
 
-### 2. The Bug Lifecycle
-A bug goes through a specific flow:
-1.  **OPEN:** Tester reports it.
-2.  **IN_PROGRESS:** Developer starts working on it.
-3.  **COMPLETED:** Developer fixes it.
+## Phase Documents
 
-### 3. Dashboards
-Each user sees a different screen (Dashboard) customized for their job.
-*   *Example:* The Admin sees a list of users, while the Developer sees a list of bugs.
+1. `PHASE_1_PROJECT_BASELINE.md`
+2. `PHASE_2_DATA_AND_DOMAIN.md`
+3. `PHASE_3_AUTH_AND_NAVIGATION.md`
+4. `PHASE_4_ADMIN_AND_MANAGER_WORKFLOWS.md`
+5. `PHASE_5_TESTER_AND_DEVELOPER_WORKFLOWS.md`
+6. `PHASE_6_QA_AND_RELEASE_READINESS.md`
 
----
+## Working Rules
 
-## 🛠️ Technology Stack (What are we using?)
-*   **Language:** Java (JDK 17+)
-*   **GUI (Graphics):** Swing (Standard Java UI library)
-*   **Styling:** Custom "Dark Mode" engine (No external UI libraries)
-*   **Data Storage:** Standard Text Files (`.txt` with pipe delimiter)
-*   **Build Tool:** **NONE.** (Standard Java Project)
-
----
-
-## 📂 Project Structure
-*   `src/com/bugtracker/ui`: All the visual screens (Dashboards, Login).
-*   `src/com/bugtracker/entity`: The data objects (User, Bug).
-*   `src/com/bugtracker/repository`: The code that saves/loads files.
-*   `src/com/bugtracker/service`: The business logic (Rules).
-*   `data/`: Where the text files live.
+- Complete phases in order unless a later task is clearly independent.
+- Keep all planning compatible with the current `bugtrackingsystem` package layout.
+- Do not reintroduce the old `com.bugtracker` structure in new work.
+- Keep file-based persistence as the source of truth for this project.
+- Use the role names and dashboard names that already exist in the codebase.

@@ -1,136 +1,117 @@
-# 🛑🛑🛑 ATTENTION TEAM: URGENT 🛑🛑🛑
-# 🚨 YOU MUST SEND YOUR GITHUB USERNAME OR EMAIL TO YOUSSEF KHODIER IMMEDIATELY 🚨
----
+# GitHub Workflow Guide
 
-# 🐙 Practical GitHub Guide for the Team
+Use this guide when working on the phased implementation plan.
 
-**Goal:** Follow these exact steps to work together without breaking the code.
-**Rule #1:** NEVER work directly on the `main` branch.
+## Core Rules
 
-# 🐙 Practical GitHub Guide for the Team
+- Never work directly on `main`.
+- Keep branch names tied to the phase or feature, not a person.
+- Test your changes before opening a pull request.
 
-**Goal:** Follow these exact steps to work together without breaking the code.
-**Rule #1:** NEVER work directly on the `main` branch.
+## 1. Clone The Repository
 
----
+```bash
+git clone repo-link
+```
 
-## 1️⃣ Start: Get the Code
-**Why:** You need the project files on your computer to start working.
+Open the project in NetBeans or your preferred Java IDE after cloning.
 
-1.  Open your terminal/command prompt.
-2.  Run this command:
-    ```bash
-    git clone repo-link
-    ```
-3.  Open the folder in your IDE.
+## 2. Create A Branch
 
----
+Use a branch name that describes the work clearly.
 
-## 2️⃣ The Golden Rule: PROTECT MAIN
-**Why:** `main` is the "Official Working Version". If you push broken code to `main`, everyone's project breaks.
+Examples:
 
-*   **You** must work in your own safe area (a "Branch").
+- `phase-1-project-baseline`
+- `phase-3-auth-routing`
+- `feature/admin-user-crud`
+- `fix/status-handling`
 
----
+Create the branch:
 
-## 3️⃣ Create Your Workspace (Branch)
-**Why:** A branch is your personal copy. You can break things here, and it won't affect anyone else.
+```bash
+git checkout -b phase-3-auth-routing
+```
 
-1.  Create and switch to your branch:
-    ```bash
-    git checkout -b personX
-    ```
-    *(Replace `personX` with your name, `person2-admin` for example)*
+Push it to GitHub:
 
-2.  Save this branch to GitHub:
-    ```bash
-    git push origin personX
-    ```
+```bash
+git push -u origin phase-3-auth-routing
+```
 
----
+## 3. Daily Work Cycle
 
-## 4️⃣ Daily Work Cycle
-**Why:** You need to save your work to the cloud so it's safe and others can see it.
+Stage changes:
 
-**Step 1: Save changes locally**
-After you write some code, run:
 ```bash
 git add .
 ```
 
-**Step 2: Commit (Label your save)**
-Tell us what you did:
+Commit with a clear message:
+
 ```bash
-git commit -m "Added login button styling"
+git commit -m "Update login routing for manager dashboard"
 ```
 
-**Step 3: Push (Send to Cloud)**
-Upload your save to GitHub:
+Push updates:
+
 ```bash
-git push origin personX
+git push
 ```
 
----
+## 4. Stay Up To Date
 
-## 5️⃣ Finish a Task: Create a Pull Request (PR)
-**Why:** You are done. You want Person 1 put it into the official `main` version.
+Before starting new work or opening a PR, sync with `main`.
 
-1.  Go to the GitHub website.
-2.  Click **"Pull Requests"** tab -> **"New Pull Request"**.
-3.  **Settings:**
-    *   **Base:** `main` (Where your code goes)
-    *   **Compare:** `personX` (Where your code is)
-4.  Click **"Create Pull Request"**.
-5.  Wait for Person 1 to review and merge it.
+```bash
+git checkout main
+git pull
+git checkout phase-3-auth-routing
+git merge main
+```
 
----
+## 5. Open A Pull Request
 
-## 6️⃣ Keep Up to Date (Sync with Main)
-**Why:** While you were working, someone else might have finished their task. You MUST get their changes into your branch to avoid errors later.
+When the phase task is ready:
 
-1.  Switch to main:
-    ```bash
-    git checkout main
-    ```
-2.  Download updates:
-    ```bash
-    git pull
-    ```
-3.  Go back to your branch:
-    ```bash
-    git checkout personX
-    ```
-4.  Combine updates into your branch:
-    ```bash
-    git merge main
-    ```
+1. Push your latest branch changes.
+2. Open GitHub.
+3. Create a pull request from your branch into `main`.
+4. Title the PR with the phase or feature being completed.
+5. Summarize what changed, what was tested, and any known gaps.
 
----
+## 6. Handle Merge Conflicts
 
-## 7️⃣ What if there is a Conflict? 😱
-**Why:** Two people changed the exact same line of code. Git doesn't know which one to keep.
+If Git reports a conflict:
 
-1.  Open the file with the conflict (it will have `<<<<<<<` and `>>>>>>>` markers).
-2.  **Manually delete** the wrong code and the markers. Keep only the correct code.
-3.  Save the file.
-4.  Tell Git you fixed it:
-    ```bash
-    git add .
-    git commit -m "Fixed merge conflict"
-    ```
+1. Open the conflicted file.
+2. Remove the conflict markers.
+3. Keep the correct final code.
+4. Stage the resolved file.
+5. Commit the merge resolution.
 
----
+Example:
 
-## 🚀 Summary Checklist
-1.  **Clone** repo (First time only).
-2.  **Checkout** your branch (`git checkout -b personX`).
-3.  **Work** on your task.
-4.  **Add & Commit** often (`git add .`, `git commit`).
-5.  **Pull** updates from main (`git pull` -> `git merge`).
-6.  **Push** to GitHub (`git push`).
-7.  **Create PR** when finished.
+```bash
+git add .
+git commit -m "Resolve merge conflict in bug workflow"
+```
 
-**⚠️ REMINDERS:**
-*   NEVER work inside another person's folder.
-*   NEVER change Text files manually (let the code do it).
-*   ALWAYS test your part before making a PR.
+## 7. Planning Alignment
+
+Before starting a branch, check which phase document applies:
+
+1. `PHASE_1_PROJECT_BASELINE.md`
+2. `PHASE_2_DATA_AND_DOMAIN.md`
+3. `PHASE_3_AUTH_AND_NAVIGATION.md`
+4. `PHASE_4_ADMIN_AND_MANAGER_WORKFLOWS.md`
+5. `PHASE_5_TESTER_AND_DEVELOPER_WORKFLOWS.md`
+6. `PHASE_6_QA_AND_RELEASE_READINESS.md`
+
+## Final Checklist
+
+- [ ] Work was done on a branch.
+- [ ] Branch name matches the phase or feature.
+- [ ] Changes were tested locally.
+- [ ] Pull request targets `main`.
+- [ ] The PR summary references the correct implementation phase.
