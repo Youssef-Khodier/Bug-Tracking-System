@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class UserRepository extends FileRepository<User> {
 
     public UserRepository() {
-        super("users.txt");
+        super("data/users.txt");
     }
 
     @Override

@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class BugRepository extends FileRepository<Bug> {
 
     public BugRepository() {
-        super("bugs.txt");
+        super("data/bugs.txt");
     }
 
     @Override

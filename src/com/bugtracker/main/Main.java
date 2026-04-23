@@ -9,4 +9,34 @@ import com.bugtracker.util.DataSeeder;
 
 public class Main {
 
+    public static void main(String[] args) {
+        // Seed initial admin user if needed.
+        DataSeeder.seedUsers();
+
+        // Basic smoke run for the legacy entry point.
+        UserRepository userRepo = new UserRepository();
+        System.out.println("Current users: " + userRepo.findAll().size());
+
+        BugRepository bugRepo = new BugRepository();
+        Bug testBug = new Bug(
+                1,
+                "Sample Bug",
+                "This is a sample bug for testing persistence.",
+                "UI",
+                "HIGH",
+                "CRITICAL",
+                "Sample Project",
+                "2025-12-01",
+                BugStatus.OPEN,
+                1,
+                1,
+                null
+        );
+        bugRepo.save(testBug);
+        System.out.println("Current bugs: " + bugRepo.findAll().size());
+
+        EmailService emailService = new EmailService();
+        emailService.sendEmail("admin@example.com", "Test Email", "This is a test email log entry.");
+        System.out.println("Email log entry written.");
+    }
 }
